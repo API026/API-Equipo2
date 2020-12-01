@@ -64,7 +64,19 @@ def update_show(tokenUser,name):
         "status": 700,
     })
 
-
+@app.route('/api_tv_shows/show/del/<string:name>/<string:tokenUser>',methods=['DELETE'])
+def delete_show(name, tokenUser):
+    if tokenUser == secretToken:
+        if db.db.api_tv_shows.find_one({'name':name}):
+            db.db.api_tv_shows.delete_one({'name':name})
+        else:
+            return jsonify({"status":400, "message": f"Show {name} not found"})
+        return jsonify({"status":200, "message": f"Show {name} was deleted"})
+    else:
+        return jsonify({
+        "message":"Incorrect token",
+        "status": 700,
+    })
 
 if __name__ == '__main__':
     app.run(load_dotenv=True, port=8080)
