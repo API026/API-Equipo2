@@ -40,7 +40,7 @@ def add_new_show(tokenUser):
         })
     else:
         return jsonify({
-        "message":"Incorrect token",
+        "message":"Incorrect token  ",
         "status": 700,
     })
 
@@ -60,7 +60,7 @@ def update_show(tokenUser,name):
         return jsonify({"status":200, "message": f"show {name} was updated"})
     else:
         return jsonify({
-        "message":"Incorrect token",
+        "message":"Incorrect token ",
         "status": 700,
     })
 
