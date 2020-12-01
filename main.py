@@ -12,7 +12,7 @@ secretToken = "fnj934no58f"
 @app.route('/test/')
 def test():
     return jsonify({
-        "message": "API working ok"
+        "message": "API working ok "
     })
 
 @app.route('/api_tv_shows/shows/', methods=['GET'])
